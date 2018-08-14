@@ -2,6 +2,7 @@
 const concat = require('../utils').concat;
 
 function isRelative (module) {
+  if (!module) return;
   return module.startsWith('./') || module.startsWith('../');
 }
 
@@ -13,6 +14,7 @@ function formatFileList (files) {
 
 function formatGroup (group) {
   const files = group.errors.map(e => e.file).filter(Boolean);
+  const name = group.module ? group.module : 'Dynamic Module';
   return `* ${group.module}${formatFileList(files)}`;
 }
 
