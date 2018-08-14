@@ -15,7 +15,7 @@ function formatFileList (files) {
 function formatGroup (group) {
   const files = group.errors.map(e => e.file).filter(Boolean);
   const name = group.module ? group.module : 'Dynamic Module';
-  return `* ${group.module}${formatFileList(files)}`;
+  return `* ${name}${formatFileList(files)}`;
 }
 
 
